@@ -62,16 +62,21 @@ async function generateGenreInput() {
     })
     .then((data) => {
       const genreList = data.genres.sort();
-      const genreContainer = document.querySelector("#genreContainer");
+      // const genreContainer = $("#genreContainer");
 
       for (const i of genreList) {
-        genreContainer.innerHTML += `
-        <li class="form-check col">
-          <input class="form-check-input genreInput" type="checkbox" value="${i}" id="${i}Check">
-          <label class="form-check-label" for="${i}Check">
-          ${i}
-          </label>
-      </li>`;
+        $("#genreContainer").html((j, html) => {
+          return (
+            html +
+            `
+            <li class="form-check col">
+              <input class="genreInput form-check-input" type="checkbox" value="${i}" id="${i}Check">
+              <label class="form-check-label" for="${i}Check">
+              ${i}
+              </label>
+            </li>`
+          );
+        });
       }
     });
 }
@@ -127,18 +132,33 @@ async function generateCards() {
           const imgElement = new Image();
 
           imgElement.addEventListener("load", () => {
-            movieListContainer.innerHTML += `
-            <div class="col">
-              <div class="card col p-2 border-primary">
-                <img src="${i.posterUrl}" class="card-img-top rounded" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-center mb-3">${i.title}</h5>
-                  <p class="card-text mb-2">Year: ${i.year}</p>
-                  <p class="card-text mb-2">Runtime: ${i.runtime}</p>
-                  <p class="card-text mb-0">Genre(s): ${[...i.genres].join(", ")}</p>
-                </div>
-              </div>
-            </div>`;
+            const div1 = document.createElement("div");
+            div1.classList.add("col");
+            const div2 = document.createElement("div");
+            div2.classList.add("card", "p-2", "border-primary");
+            const img = document.createElement("img");
+            img.src = i.posterUrl;
+            img.classList.add("card-img-top", "rounded");
+            img.alt = "...";
+            const div3 = document.createElement("div");
+            div3.classList.add("card-body");
+            const h5 = document.createElement("h5");
+            h5.classList.add("card-title", "text-center", "mb-3");
+            h5.textContent = i.title;
+            const p1 = document.createElement("p");
+            p1.classList.add("card-text", "mb-2");
+            p1.textContent = "Year: " + i.year;
+            const p2 = document.createElement("p");
+            p2.classList.add("card-text", "mb-2");
+            p2.textContent = "Runtime: " + i.runtime;
+            const p3 = document.createElement("p");
+            p3.classList.add("card-text", "mb-0");
+            p3.textContent = "Genres: " + [...i.genres].join(", ");
+
+            div3.replaceChildren(h5, p1, p2, p3);
+            div2.replaceChildren(img, div3);
+            div1.replaceChildren(div2);
+            movieListContainer.appendChild(div1);
           });
 
           imgElement.src = i.posterUrl;
