@@ -10,32 +10,62 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script defer src="./script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <title>IMDB</title>
+    <title>Movie Query</title>
 </head>
 
 <body>
-    <div class="container my-5 p-5 border">
-        <h2 class="mb-4">Options</h2>
-        <ul id="genreContainer" class="row row-cols-1 row-cols-md-6 g-1 mb-5"></ul>
-        <button id="queryButton" class="btn btn-primary">Query</button>
-    </div>
-    <div class="container my-5">
-        <form action="https://www.w3schools.com/action_page.php" method="post" class="row g-3 justify-content-center align-items-center">
-            <div class="col-auto">
-                <label for="exampleInputEmail1" class="form-label">Sign up for updates</label>
+    <div class="container p-5">
+        <div class="container p-5 border rounded">
+            <form class="needs-validation">
+                <h2 class="mb-4">Genres:</h2>
+                <ul id="genreContainer" class="row row-cols-1 row-cols-md-6 g-1 mb-5"></ul>
+                <div class="row g-3 mb-4 align-items-center needs-validation">
+                    <div class="col-auto">
+                        <label for="runtimeFloor" class="form-label">Min runtime:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="integer form-control" id="runtimeFloor">
+                        <div class="invalid-feedback">
+                            Must be a positive value
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-3 align-items-center needs-validation">
+                    <div class="col-auto">
+                        <label for="runtimeCeil" class="form-label">Max runtime:</label>
+                    </div>
+                    <div class="col-auto">
+                        <input type="number" class="integer form-control" id="runtimeCeil">
+                        <div class="invalid-feedback">
+                            Must be a positive value
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" id="queryButton" class="btn btn-primary mt-5" value="Query">
+            </form>
+        </div>
+        <div class="container my-5">
+            <form action="https://www.w3schools.com/action_page.php" method="post"
+                class="row g-3 justify-content-center align-items-center">
+                <div class="col-auto">
+                    <label for="exampleInputEmail1" class="form-label">Sign up for updates</label>
+                </div>
+                <div class="col-auto">
+                    <input type="email" required class="form-control" placeholder="name@example.com" name="email"
+                        id="exampleInputEmail1">
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="container">
+            <div id="cardContainer" class="row row-cols-2 row-cols-lg-5 justify-content-center g-4">
             </div>
-            <div class="col-auto">
-                <input type="email" class="form-control" placeholder="name@example.com" name="email" id="exampleInputEmail1">
-            </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
+        </div>
     </div>
 
-    <div class="container my-5">
-        <div id="cardContainer" class="row row-cols-1 row-cols-md-5 justify-content-center"></div>
-    </div>
 </body>
 
 </html>
