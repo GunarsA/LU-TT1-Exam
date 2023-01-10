@@ -8,8 +8,8 @@ function integerValidator(event) {
   }
 }
 
-function addSubmitValidation() {
-  document.querySelector(".needs-validation").addEventListener(
+function addQueryValidation() {
+  document.querySelector("#queryForm").addEventListener(
     "submit",
     function (event) {
       event.preventDefault();
@@ -35,7 +35,7 @@ function addSubmitValidation() {
   );
 }
 
-function addFocusOutValidation() {
+function addQueryFocusoutValidation() {
   Array.from(document.querySelectorAll(".integer")).forEach((input) =>
     input.addEventListener(
       "focusout",
@@ -55,6 +55,23 @@ function addFocusOutValidation() {
   );
 }
 
+function addEmailValidation() {
+  const test = document.querySelector("#emailForm");
+  // console.log(test);
+  document.querySelector("#emailForm").addEventListener(
+    "submit",
+    function (event) {
+      if (!this.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+        
+        this.classList.add("was-validated")
+      }
+    },
+    false
+  );
+}
+
 async function generateGenreInput() {
   await fetch("./data.json")
     .then((response) => {
@@ -62,7 +79,6 @@ async function generateGenreInput() {
     })
     .then((data) => {
       const genreList = data.genres.sort();
-      // const genreContainer = $("#genreContainer");
 
       for (const i of genreList) {
         $("#genreContainer").html((j, html) => {
@@ -168,8 +184,9 @@ async function generateCards() {
 }
 
 window.addEventListener("DOMContentLoaded", (event) => {
-  generateGenreInput();
+  addQueryValidation();
+  addQueryFocusoutValidation();
+  addEmailValidation();
 
-  addSubmitValidation();
-  addFocusOutValidation();
+  generateGenreInput();
 });

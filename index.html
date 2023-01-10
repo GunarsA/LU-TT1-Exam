@@ -16,7 +16,7 @@
 <body>
     <div class="container my-5">
         <div class="container p-5 border border-primary rounded">
-            <form class="needs-validation">
+            <form novalidate id="queryForm" class="needs-validation">
                 <h2 class="mb-4">Genres:</h2>
                 <ul id="genreContainer" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-1 mb-5"></ul>
                 <div class="row g-3 mb-4 align-items-center needs-validation">
@@ -26,7 +26,7 @@
                     <div class="col-auto">
                         <input type="number" class="integer form-control" id="runtimeFloor">
                         <div class="invalid-feedback">
-                            Must be a positive value
+                            Must be a positive value!
                         </div>
                     </div>
                 </div>
@@ -37,22 +37,26 @@
                     <div class="col-auto">
                         <input type="number" class="integer form-control" id="runtimeCeil">
                         <div class="invalid-feedback">
-                            Must be a positive value
+                            Must be a positive value!
                         </div>
                     </div>
                 </div>
-                <input type="submit" id="queryButton" class="btn btn-primary mt-5" value="Query">
+                <input type="submit" class="btn btn-primary mt-5" value="Query">
             </form>
         </div>
+
         <div class="container my-5">
-            <form action="https://www.w3schools.com/action_page.php" method="post"
-                class="row g-3 justify-content-center align-items-center">
+            <form novalidate id="emailForm" action="https://www.w3schools.com/action_page.php" method="post"
+                class="needs-validation row row-cols-1 row-cols-md-3 g-3 justify-content-center align-items-center">
                 <div class="col-auto">
-                    <label for="exampleInputEmail1" class="form-label">Sign up for updates</label>
+                    <label for="inputEmail1" class="form-label">Sign up for updates</label>
                 </div>
                 <div class="col-auto">
                     <input type="email" required class="form-control" placeholder="name@example.com" name="email"
-                        id="exampleInputEmail1">
+                        id="inputEmail1">
+                    <div class="invalid-feedback">
+                        Valid email must be provided!
+                    </div>
                 </div>
                 <div class="col-auto">
                     <button type="submit" class="btn btn-primary">Submit</button>
