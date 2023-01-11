@@ -1,0 +1,49 @@
+#demo {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2em;
+  gap: 2em;
+  border: solid 1px blue;
+  border-radius: 4px;
+  justify-content: space-between;
+}
+
+#demo > * {
+  flex: 1 0 150px;
+}
+
+#demo > :nth-child(2n) > :first-child {
+  color: aqua;
+}
+
+#demo > :nth-child(2n + 1) > :first-child {
+  color: chartreuse;
+}
+
+#demo ol > :nth-child(2n),
+#demo ul > :nth-child(2n) {
+  font-weight: bold;
+}
+
+#demo .span {
+  color: brown;
+}
+
+#demo h5 {
+  margin-bottom: 1em;
+}
+
+#demo p::first-letter {
+  color: firebrick;
+  font-size: 2em;
+}
+
+#demo h4 {
+  text-transform: uppercase;
+}
+
+@media print {
+  #demo {
+    display: none;
+  }
+}

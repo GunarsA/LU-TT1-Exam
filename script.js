@@ -64,8 +64,8 @@ function addEmailValidation() {
       if (!this.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
-        
-        this.classList.add("was-validated")
+
+        this.classList.add("was-validated");
       }
     },
     false
