@@ -14,11 +14,11 @@
 </head>
 
 <body>
-    <div class="container my-5">
+    <div class="container my-2 my-md-5">
         <div class="container p-5 border border-primary rounded">
             <form novalidate id="queryForm" class="needs-validation">
                 <h2 class="mb-4">Genres:</h2>
-                <ul id="genreContainer" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-1 mb-5"></ul>
+                <ul id="genreContainer" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-1 mb-5 p-0"></ul>
                 <div class="row g-3 mb-4 align-items-center needs-validation">
                     <div class="col-auto">
                         <label for="runtimeFloor" class="form-label">Min runtime:</label>
@@ -48,24 +48,24 @@
         <div class="container my-5">
             <form novalidate id="emailForm" action="https://www.w3schools.com/action_page.php" method="post"
                 class="needs-validation row row-cols-1 row-cols-md-3 g-3 justify-content-center align-items-center">
-                <div class="col-auto">
+                <div class="col col-md-auto">
                     <label for="inputEmail1" class="form-label">Sign up for updates</label>
                 </div>
-                <div class="col-auto">
+                <div class="col col-md-auto">
                     <input type="email" required class="form-control" placeholder="name@example.com" name="email"
                         id="inputEmail1">
                     <div class="invalid-feedback">
                         Valid email must be provided!
                     </div>
                 </div>
-                <div class="col-auto">
+                <div class="col col-md-auto">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
 
         <div class="container mb-5">
-            <div id="cardContainer" class="row row-cols-2 row-cols-lg-5 justify-content-center g-4">
+            <div id="cardContainer" class="row row-cols-2 row-cols-lg-5 justify-content-center g-1 g-md-4">
             </div>
         </div>
 
@@ -98,12 +98,13 @@
             </div>
             <div>
                 <h5>Text</h5>
-                <p>Lorem ipsum <span class="span">dolor</span> sit <strong>amet consectetur adipisicing</strong> elit. <br>
-                    Minima eveniet <em>voluptatem excepturi</em> fuga, <span class="span">doloremque</span> consectetur!</p>
+                <p>Lorem ipsum <span class="span">dolor</span> sit <strong>amet consectetur adipisicing</strong> elit.
+                    <br>
+                    Minima eveniet <em>voluptatem excepturi</em> fuga, <span class="span">doloremque</span> consectetur!
+                </p>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
