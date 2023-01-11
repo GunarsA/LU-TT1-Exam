@@ -57,7 +57,6 @@ function addQueryFocusoutValidation() {
 
 function addEmailValidation() {
   const test = document.querySelector("#emailForm");
-  // console.log(test);
   document.querySelector("#emailForm").addEventListener(
     "submit",
     function (event) {
