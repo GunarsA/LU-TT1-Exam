@@ -9,9 +9,9 @@ function integerValidator(event) {
 }
 
 function addQueryValidation() {
-  document.querySelector("#queryForm").addEventListener(
-    "submit",
-    function (event) {
+  document
+    .querySelector("#queryForm")
+    .addEventListener("submit", function (event) {
       event.preventDefault();
       event.stopPropagation();
 
@@ -30,9 +30,7 @@ function addQueryValidation() {
       if (this.checkValidity()) {
         generateCards();
       }
-    },
-    false
-  );
+    });
 }
 
 function addQueryFocusoutValidation() {
@@ -56,19 +54,16 @@ function addQueryFocusoutValidation() {
 }
 
 function addEmailValidation() {
-  const test = document.querySelector("#emailForm");
-  document.querySelector("#emailForm").addEventListener(
-    "submit",
-    function (event) {
+  document
+    .querySelector("#emailForm")
+    .addEventListener("submit", function (event) {
       if (!this.checkValidity()) {
         event.preventDefault();
         event.stopPropagation();
 
         this.classList.add("was-validated");
       }
-    },
-    false
-  );
+    });
 }
 
 async function generateGenreInput() {
@@ -182,7 +177,7 @@ async function generateCards() {
     });
 }
 
-window.addEventListener("DOMContentLoaded", (event) => {
+window.addEventListener("DOMContentLoaded", () => {
   addQueryValidation();
   addQueryFocusoutValidation();
   addEmailValidation();
